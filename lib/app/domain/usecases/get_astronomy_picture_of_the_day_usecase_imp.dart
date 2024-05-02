@@ -4,12 +4,12 @@ import 'package:nasa_today/app/domain/usecases/usecases.dart';
 
 class GetAstronomyPictureOfTheDayUsecaseImp
     implements IGetAstronomyPictureOfTheDayUseCase {
-  final IGetAstronomyPictureOfTheDayRepository repository;
+  final IGetAstronomyPictureOfTheDayRepository _repository;
 
-  GetAstronomyPictureOfTheDayUsecaseImp(this.repository);
+  GetAstronomyPictureOfTheDayUsecaseImp(this._repository);
 
   @override
   Future<AstronomyPictureEntity> call() async {
-    return await repository();
+    return await _repository();
   }
 }
