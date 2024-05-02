@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nasa_today/app/domain/entities/entities.dart';
+import 'package:nasa_today/app/domain/exceptions/exceptions.dart';
 import 'package:nasa_today/app/domain/repositories/repositories.dart';
 import 'package:nasa_today/app/domain/usecases/usecases.dart';
 
@@ -21,16 +22,31 @@ void main() {
     pictureTodayEntityFaker = TestMocks.astronomyPictureToday;
   });
 
-  test(
-    'Should return a AstronomyPictureEntity when request is success',
-    () async {
-      when(repository()).thenAnswer(
-        (_) async => Future.value(pictureTodayEntityFaker),
-      );
+  group('success tests', () {
+    test(
+      'Should return a AstronomyPictureEntity when request is success',
+      () async {
+        when(repository()).thenAnswer(
+          (_) async => Future.value(pictureTodayEntityFaker),
+        );
 
-      final pictureOfTheDay = await usecase();
+        final pictureOfTheDay = await usecase();
 
-      expect(pictureOfTheDay, isA<AstronomyPictureEntity>());
-    },
-  );
+        expect(pictureOfTheDay, isA<AstronomyPictureEntity>());
+      },
+    );
+  });
+
+  group('errors tests', () {
+    test(
+      'Should throw a NTException when request got any error',
+      () async {
+        when(repository()).thenThrow(NTGenericException());
+
+        final future = usecase();
+
+        expect(future, throwsA(isA<NTException>()));
+      },
+    );
+  });
 }
