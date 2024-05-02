@@ -1,5 +1,5 @@
 class AstronomyPictureEntity {
-  final String copyright;
+  final String? copyright;
   final DateTime date;
   final String explanation;
   final String hdurl;
@@ -9,7 +9,7 @@ class AstronomyPictureEntity {
   final String url;
 
   AstronomyPictureEntity({
-    required this.copyright,
+    this.copyright,
     required this.date,
     required this.explanation,
     required this.hdurl,

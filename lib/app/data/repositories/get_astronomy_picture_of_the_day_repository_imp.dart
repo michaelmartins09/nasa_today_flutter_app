@@ -13,7 +13,7 @@ class GetAstronomyPictureOfTheDayRepositoryImp
   Future<AstronomyPictureEntity> call() async {
     try {
       return await _datasource();
-    } catch (e) {
+    } catch (_) {
       throw NTGenericException();
     }
   }
