@@ -15,14 +15,20 @@ class AppModule extends Module {
     // UseCases
     i.addSingleton<IGetAstronomyPictureOfTheDayUseCase>(
         GetAstronomyPictureOfTheDayUsecaseImp.new);
+    i.addSingleton<IGetRandomAstronomyPicturesUsecase>(
+        GetRandomAstronomyPicturesUsecaseImp.new);
 
     // Repositories
     i.addSingleton<IGetAstronomyPictureOfTheDayRepository>(
         GetAstronomyPictureOfTheDayRepositoryImp.new);
+    i.addSingleton<IGetRandomAstronomyPicturesRepository>(
+        GetRandomAstronomyPicturesRepositoryImp.new);
 
     // Datasources
     i.addSingleton<IGetAstronomyPictureOfTheDayDatasource>(
         GetAstronomyPictureOfTheDayDatasourceImp.new);
+    i.addSingleton<IGetRandomAstronomyPicturesDatasource>(
+        GetRandomAstronomyPicturesDatasourceImp.new);
 
     // General
     i.addSingleton(NTClientHttps.new);
