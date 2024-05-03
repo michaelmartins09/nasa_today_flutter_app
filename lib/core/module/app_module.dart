@@ -10,16 +10,16 @@ class AppModule extends Module {
   @override
   void binds(Injector i) {
     // Https
-    i.addLazySingleton((i) => NTClientHttps());
+    i.addLazySingleton(NTClientHttps.new);
 
     // UseCases
-    i.addLazySingleton((i) => GetAstronomyPictureOfTheDayUsecaseImp(i));
+    i.addLazySingleton(GetAstronomyPictureOfTheDayUsecaseImp.new);
 
     // Repositories
-    i.addLazySingleton((i) => GetAstronomyPictureOfTheDayRepositoryImp(i));
+    i.addLazySingleton(GetAstronomyPictureOfTheDayRepositoryImp.new);
 
     // Datasources
-    i.addLazySingleton((i) => GetAstronomyPictureOfTheDayDatasourceImp(i));
+    i.addLazySingleton(GetAstronomyPictureOfTheDayDatasourceImp.new);
   }
 
   @override
