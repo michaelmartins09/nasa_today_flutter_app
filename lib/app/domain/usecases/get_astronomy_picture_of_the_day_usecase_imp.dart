@@ -1,4 +1,4 @@
-import 'package:nasa_today/app/domain/entities/astronomy_picture_entity.dart';
+import 'package:nasa_today/app/data/models/models.dart';
 import 'package:nasa_today/app/domain/repositories/repositories.dart';
 import 'package:nasa_today/app/domain/usecases/usecases.dart';
 
@@ -9,7 +9,7 @@ class GetAstronomyPictureOfTheDayUsecaseImp
   GetAstronomyPictureOfTheDayUsecaseImp(this._repository);
 
   @override
-  Future<AstronomyPictureEntity> call() async {
+  Future<AstronomyPictureDto> call() async {
     return await _repository();
   }
 }

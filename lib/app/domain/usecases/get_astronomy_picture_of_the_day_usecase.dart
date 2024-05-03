@@ -1,5 +1,5 @@
-import 'package:nasa_today/app/domain/entities/entities.dart';
+import 'package:nasa_today/app/data/models/models.dart';
 
 abstract class IGetAstronomyPictureOfTheDayUseCase {
-  Future<AstronomyPictureEntity> call();
+  Future<AstronomyPictureDto> call();
 }

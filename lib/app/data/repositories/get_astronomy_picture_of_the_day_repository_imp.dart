@@ -1,5 +1,5 @@
 import 'package:nasa_today/app/data/datasources/datasources.dart';
-import 'package:nasa_today/app/domain/entities/astronomy_picture_entity.dart';
+import 'package:nasa_today/app/data/models/models.dart';
 import 'package:nasa_today/app/domain/exceptions/exceptions.dart';
 import 'package:nasa_today/app/domain/repositories/repositories.dart';
 
@@ -10,7 +10,7 @@ class GetAstronomyPictureOfTheDayRepositoryImp
   GetAstronomyPictureOfTheDayRepositoryImp(this._datasource);
 
   @override
-  Future<AstronomyPictureEntity> call() async {
+  Future<AstronomyPictureDto> call() async {
     try {
       return await _datasource();
     } catch (_) {
