@@ -18,6 +18,8 @@ dependencies:
   mobx: ^2.3.3+2
   flutter_mobx: ^2.2.1+1
   intl:
+  shimmer: ^3.0.0
+  swipe_refresh: ^1.1.2
 
 dev_dependencies:
   flutter_test:
