@@ -7,6 +7,7 @@ import 'package:nasa_today/app/presentation/pages/home/home_controller.dart';
 import 'package:nasa_today/app/presentation/pages/home/widgets/picture_card.dart';
 import 'package:nasa_today/app/presentation/pages/home/widgets/picture_list_tile.dart';
 import 'package:nasa_today/app/presentation/pages/home/widgets/picture_session_label.dart';
+import 'package:nasa_today/core/core.dart';
 import 'package:swipe_refresh/swipe_refresh.dart';
 
 class HomePage extends StatefulWidget {
@@ -85,6 +86,7 @@ class _HomePageState extends State<HomePage> {
       return PictureCard(
         picture: _controller.pictureToday!.url,
         title: _controller.pictureToday!.title,
+        onTap: () => AppRoutes.goToDetailPage(_controller.pictureToday!),
       );
     });
   }
@@ -121,6 +123,7 @@ class _HomePageState extends State<HomePage> {
               picture: picture.url,
               date: picture.date,
               title: picture.title,
+              onTap: () => AppRoutes.goToDetailPage(picture),
             );
           },
         ),

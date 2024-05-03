@@ -5,9 +5,11 @@ class PictureListTile extends StatelessWidget {
   final String picture;
   final String title;
   final DateTime date;
+  final Function()? onTap;
 
   const PictureListTile({
     super.key,
+    this.onTap,
     required this.picture,
     required this.date,
     required this.title,
@@ -40,7 +42,7 @@ class PictureListTile extends StatelessWidget {
           Text(date.toFormatEnUs()),
         ],
       ),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 

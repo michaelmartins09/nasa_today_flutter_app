@@ -48,7 +48,6 @@ abstract class _HomeControllerBase with Store {
   }) async {
     try {
       loadingList = true;
-      picturesList.clear();
 
       final pictures = await _getRandomAstronomyPicturesUseCase(
         randomSize: randomSize,
