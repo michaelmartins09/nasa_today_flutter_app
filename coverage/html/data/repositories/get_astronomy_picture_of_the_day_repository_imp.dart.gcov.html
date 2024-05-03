@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-05-02 20:36:33</td>
+            <td class="headerValue">2024-05-02 21:39:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -61,7 +61,7 @@
 <pre class="sourceHeading">            Line data    Source code</pre>
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : import 'package:nasa_today/app/data/datasources/datasources.dart';</span>
-<span id="L2"><span class="lineNum">       2</span>              : import 'package:nasa_today/app/domain/entities/astronomy_picture_entity.dart';</span>
+<span id="L2"><span class="lineNum">       2</span>              : import 'package:nasa_today/app/data/models/models.dart';</span>
 <span id="L3"><span class="lineNum">       3</span>              : import 'package:nasa_today/app/domain/exceptions/exceptions.dart';</span>
 <span id="L4"><span class="lineNum">       4</span>              : import 'package:nasa_today/app/domain/repositories/repositories.dart';</span>
 <span id="L5"><span class="lineNum">       5</span>              : </span>
@@ -72,10 +72,10 @@
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC tlaBgGNC">           1 :   GetAstronomyPictureOfTheDayRepositoryImp(this._datasource);</span></span>
 <span id="L11"><span class="lineNum">      11</span>              : </span>
 <span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :   @override</span></span>
-<span id="L13"><span class="lineNum">      13</span>              :   Future&lt;AstronomyPictureEntity&gt; call() async {</span>
+<span id="L13"><span class="lineNum">      13</span>              :   Future&lt;AstronomyPictureDto&gt; call() async {</span>
 <span id="L14"><span class="lineNum">      14</span>              :     try {</span>
 <span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           2 :       return await _datasource();</span></span>
-<span id="L16"><span class="lineNum">      16</span>              :     } catch (e) {</span>
+<span id="L16"><span class="lineNum">      16</span>              :     } catch (_) {</span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :       throw NTGenericException();</span></span>
 <span id="L18"><span class="lineNum">      18</span>              :     }</span>
 <span id="L19"><span class="lineNum">      19</span>              :   }</span>
