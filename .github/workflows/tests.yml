@@ -1,8 +1,12 @@
-name: test-my-app
+name: nasa-today-tests
 
 on:
   push:
-    branches: 'ci/cd'
+    branches: 'main'
+  pull_request:
+    types:
+      - opened
+    branches: 'main'
 
 jobs:
   test:
@@ -20,5 +24,8 @@ jobs:
       - name: Check Flutter SDK version
         run: flutter doctor -v
           
-      - run: flutter pub get
-      - run: flutter test
+      - name: Get app dependencies
+        run: flutter pub get
+
+      - name: Run tests with coverage
+        run: flutter test --coverage
