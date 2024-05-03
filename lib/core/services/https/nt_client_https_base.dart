@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:nasa_today/app/domain/exceptions/exceptions.dart';
 
-abstract class NTClientHtttpsBase {
+abstract class NTClientHttpsBase {
   final Dio _dio;
 
-  NTClientHtttpsBase(
+  NTClientHttpsBase(
     BaseOptions baseOptions, {
     List<Interceptor>? interceptors,
   }) : _dio = Dio(baseOptions) {

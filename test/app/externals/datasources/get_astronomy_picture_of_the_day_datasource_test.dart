@@ -15,7 +15,7 @@ import 'get_astronomy_picture_of_the_day_datasource_test.mocks.dart';
 ])
 void main() {
   late IGetAstronomyPictureOfTheDayDatasource datasource;
-  late NTClientHtttpsBase client;
+  late NTClientHttps client;
 
   late Map<String, dynamic> paylodResponse;
   late Faker faker;

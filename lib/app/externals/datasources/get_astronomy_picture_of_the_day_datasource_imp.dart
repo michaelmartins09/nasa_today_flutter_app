@@ -5,7 +5,7 @@ import '../../../core/services/https/https.dart';
 
 class GetAstronomyPictureOfTheDayDatasourceImp
     implements IGetAstronomyPictureOfTheDayDatasource {
-  final NTClientHtttpsBase _client;
+  final NTClientHttps _client;
 
   GetAstronomyPictureOfTheDayDatasourceImp(this._client);
 

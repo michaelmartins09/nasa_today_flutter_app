@@ -12,14 +12,12 @@ import 'nt_client_https_test.mocks.dart';
   MockSpec<Dio>(as: #MockDio),
 ])
 void main() {
-  late NTClientHtttpsBase client;
+  late NTClientHttpsBase client;
   late MockDio dio;
 
   setUp(() {
-    const baseUrl = 'https://api.nasa.gov/';
-
     dio = MockDio();
-    client = NTClientHttps(baseUrl, []);
+    client = NTClientHttps();
   });
 
   test('Successful GET request', () async {
