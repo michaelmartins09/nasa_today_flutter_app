@@ -7,6 +7,7 @@ import 'package:nasa_today/app/data/repositories/repositories.dart';
 import 'package:nasa_today/app/domain/repositories/repositories.dart';
 import 'package:nasa_today/app/domain/usecases/usecases.dart';
 import 'package:nasa_today/app/externals/datasources/datasources.dart';
+import 'package:nasa_today/app/presentation/pages/home/home_controller.dart';
 import 'package:nasa_today/core/core.dart';
 import 'package:nasa_today/core/services/https/https.dart';
 
@@ -31,17 +32,17 @@ void main() {
     test(
         'Should return a instance of GetRandomAstronomyPicturesUsecaseImp from bind abstract',
         () {
-      final client = Modular.get<IGetRandomAstronomyPicturesUsecase>();
+      final usecase = Modular.get<IGetRandomAstronomyPicturesUsecase>();
 
-      expect(client, isA<GetRandomAstronomyPicturesUsecaseImp>());
+      expect(usecase, isA<GetRandomAstronomyPicturesUsecaseImp>());
     });
 
     test(
         'Should return a instance of GetAstronomyPictureOfTheDayUseCaseImp from bind abstract',
         () {
-      final client = Modular.get<IGetAstronomyPictureOfTheDayUseCase>();
+      final usecase = Modular.get<IGetAstronomyPictureOfTheDayUseCase>();
 
-      expect(client, isA<GetAstronomyPictureOfTheDayUsecaseImp>());
+      expect(usecase, isA<GetAstronomyPictureOfTheDayUsecaseImp>());
     });
   });
 
@@ -49,17 +50,17 @@ void main() {
     test(
         'Should return a instance of GetRandomAstronomyPicturesRepositoryImp from bind abstract',
         () {
-      final client = Modular.get<IGetRandomAstronomyPicturesRepository>();
+      final repository = Modular.get<IGetRandomAstronomyPicturesRepository>();
 
-      expect(client, isA<GetRandomAstronomyPicturesRepositoryImp>());
+      expect(repository, isA<GetRandomAstronomyPicturesRepositoryImp>());
     });
 
     test(
         'Should return a instance of GetAstronomyPictureOfTheDayRepositoryImp from bind abstract',
         () {
-      final client = Modular.get<IGetAstronomyPictureOfTheDayRepository>();
+      final repository = Modular.get<IGetAstronomyPictureOfTheDayRepository>();
 
-      expect(client, isA<GetAstronomyPictureOfTheDayRepositoryImp>());
+      expect(repository, isA<GetAstronomyPictureOfTheDayRepositoryImp>());
     });
   });
 
@@ -67,17 +68,33 @@ void main() {
     test(
         'Should return a instance of GetRandomAstronomyPicturesDatasourceImp from bind abstract',
         () {
-      final client = Modular.get<IGetRandomAstronomyPicturesDatasource>();
+      final datasource = Modular.get<IGetRandomAstronomyPicturesDatasource>();
 
-      expect(client, isA<GetRandomAstronomyPicturesDatasourceImp>());
+      expect(datasource, isA<GetRandomAstronomyPicturesDatasourceImp>());
     });
 
     test(
         'Should return a instance of GetAstronomyPictureOfTheDayDatasourceImp from bind abstract',
         () {
-      final client = Modular.get<IGetAstronomyPictureOfTheDayDatasource>();
+      final datasource = Modular.get<IGetAstronomyPictureOfTheDayDatasource>();
 
-      expect(client, isA<GetAstronomyPictureOfTheDayDatasourceImp>());
+      expect(datasource, isA<GetAstronomyPictureOfTheDayDatasourceImp>());
+    });
+  });
+
+  group('Verify binds service', () {
+    test('Should return a instance of NTClientHttps from bind', () {
+      final client = Modular.get<NTClientHttps>();
+
+      expect(client, isA<NTClientHttps>());
+    });
+  });
+
+  group('Verify binds controllers', () {
+    test('Should return a instance of HomeController from bind', () {
+      final controller = Modular.get<HomeController>();
+
+      expect(controller, isA<HomeController>());
     });
   });
 }
