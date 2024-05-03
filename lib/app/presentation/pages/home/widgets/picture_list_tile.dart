@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nasa_today/app/presentation/components/components.dart';
 import 'package:nasa_today/shared/extensions/date_extension.dart';
 
 class PictureListTile extends StatelessWidget {
@@ -21,15 +22,12 @@ class PictureListTile extends StatelessWidget {
       onLongPress: () => _onShowImage(context: context, picture: picture),
       leading: Hero(
         tag: picture,
-        child: Container(
+        child: SizedBox(
           width: 50,
           height: 50,
-          decoration: BoxDecoration(
+          child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(
-              image: NetworkImage(picture),
-              fit: BoxFit.cover,
-            ),
+            child: NasaCachedImage(url: picture),
           ),
         ),
       ),

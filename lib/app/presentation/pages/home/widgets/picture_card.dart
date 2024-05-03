@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/components.dart';
+
 class PictureCard extends StatelessWidget {
   final String picture;
   final String title;
@@ -23,34 +25,43 @@ class PictureCard extends StatelessWidget {
           child: Container(
             height: 150,
             width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black45,
-                  blurRadius: 4,
-                  offset: Offset(-1, 4),
-                ),
-              ],
-              image: DecorationImage(
-                image: NetworkImage(picture),
-                fit: BoxFit.cover,
-              ),
-            ),
             margin: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+            child: Stack(
+              fit: StackFit.expand,
               children: [
-                Container(
-                  color: Colors.black.withOpacity(0.5),
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: NasaCachedImage(url: picture),
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Text(
-                    title,
-                    maxLines: 1,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.black,
+                        ],
+                      ),
+                    ),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Text(
+                        title,
+                        maxLines: 1,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),

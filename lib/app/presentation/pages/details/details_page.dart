@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_today/app/data/models/models.dart';
+import 'package:nasa_today/app/presentation/components/components.dart';
 import 'package:nasa_today/app/presentation/pages/home/widgets/picture_session_label.dart';
 import 'package:nasa_today/shared/extensions/date_extension.dart';
 
@@ -26,7 +27,7 @@ class _DetailsPageState extends State<DetailsPage> {
           children: <Widget>[
             Hero(
               tag: widget.picture.url,
-              child: Image.network(widget.picture.url),
+              child: NasaCachedImage(url: widget.picture.url),
             ),
             PictureSessionLabel(label: widget.picture.title),
             Padding(
