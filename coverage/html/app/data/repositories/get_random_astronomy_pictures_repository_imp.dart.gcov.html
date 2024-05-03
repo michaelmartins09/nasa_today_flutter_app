@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>LCOV - lcov.info - app/externals/datasources/get_astronomy_picture_of_the_day_datasource_imp.dart</title>
+  <title>LCOV - lcov.info - app/data/repositories/get_random_astronomy_pictures_repository_imp.dart</title>
   <link rel="stylesheet" type="text/css" href="../../../gcov.css">
 </head>
 
@@ -19,7 +19,7 @@
                 <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="10%" class="headerValue"><a href="../../../index.html" title="Click to go to top-level">top level</a> - <a href="index.html" title="Click to go to directory app/externals/datasources">app/externals/datasources</a> - get_astronomy_picture_of_the_day_datasource_imp.dart<span style="font-size: 80%;"> (source / <a href="get_astronomy_picture_of_the_day_datasource_imp.dart.func-c.html" title="Click to go to function table">functions</a>)</span></td>
+            <td width="10%" class="headerValue"><a href="../../../index.html" title="Click to go to top-level">top level</a> - <a href="index.html" title="Click to go to directory app/data/repositories">app/data/repositories</a> - get_random_astronomy_pictures_repository_imp.dart<span style="font-size: 80%;"> (source / <a href="get_random_astronomy_pictures_repository_imp.dart.func-c.html" title="Click to go to function table">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="5%"></td>
             <td width="5%" class="headerCovTableHead">Coverage</td>
@@ -62,24 +62,28 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : import 'package:nasa_today/app/data/datasources/datasources.dart';</span>
 <span id="L2"><span class="lineNum">       2</span>              : import 'package:nasa_today/app/data/models/models.dart';</span>
-<span id="L3"><span class="lineNum">       3</span>              : </span>
-<span id="L4"><span class="lineNum">       4</span>              : import '../../../core/services/https/https.dart';</span>
-<span id="L5"><span class="lineNum">       5</span>              : </span>
-<span id="L6"><span class="lineNum">       6</span>              : class GetAstronomyPictureOfTheDayDatasourceImp</span>
-<span id="L7"><span class="lineNum">       7</span>              :     implements IGetAstronomyPictureOfTheDayDatasource {</span>
-<span id="L8"><span class="lineNum">       8</span>              :   final NTClientHttps _client;</span>
-<span id="L9"><span class="lineNum">       9</span>              : </span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC tlaBgGNC">           1 :   GetAstronomyPictureOfTheDayDatasourceImp(this._client);</span></span>
-<span id="L11"><span class="lineNum">      11</span>              : </span>
-<span id="L12"><span class="lineNum">      12</span>              :   final _endpoint = &quot;/planetary/apod&quot;;</span>
-<span id="L13"><span class="lineNum">      13</span>              : </span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :   @override</span></span>
-<span id="L15"><span class="lineNum">      15</span>              :   Future&lt;AstronomyPictureDto&gt; call() async {</span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           3 :     final response = await _client.get(_endpoint);</span></span>
-<span id="L17"><span class="lineNum">      17</span>              : </span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           2 :     return AstronomyPictureDto.fromMap(response.data);</span></span>
-<span id="L19"><span class="lineNum">      19</span>              :   }</span>
-<span id="L20"><span class="lineNum">      20</span>              : }</span>
+<span id="L3"><span class="lineNum">       3</span>              : import 'package:nasa_today/app/domain/repositories/repositories.dart';</span>
+<span id="L4"><span class="lineNum">       4</span>              : </span>
+<span id="L5"><span class="lineNum">       5</span>              : import '../../domain/exceptions/exceptions.dart';</span>
+<span id="L6"><span class="lineNum">       6</span>              : </span>
+<span id="L7"><span class="lineNum">       7</span>              : class GetRandomAstronomyPicturesRepositoryImp</span>
+<span id="L8"><span class="lineNum">       8</span>              :     implements IGetRandomAstronomyPicturesRepository {</span>
+<span id="L9"><span class="lineNum">       9</span>              :   final IGetRandomAstronomyPicturesDatasource _repository;</span>
+<span id="L10"><span class="lineNum">      10</span>              : </span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC tlaBgGNC">           1 :   GetRandomAstronomyPicturesRepositoryImp(this._repository);</span></span>
+<span id="L12"><span class="lineNum">      12</span>              : </span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :   @override</span></span>
+<span id="L14"><span class="lineNum">      14</span>              :   Future&lt;List&lt;AstronomyPictureDto&gt;&gt; call({</span>
+<span id="L15"><span class="lineNum">      15</span>              :     required int randomSize,</span>
+<span id="L16"><span class="lineNum">      16</span>              :     DateTime? date,</span>
+<span id="L17"><span class="lineNum">      17</span>              :   }) async {</span>
+<span id="L18"><span class="lineNum">      18</span>              :     try {</span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           2 :       return await _repository(randomSize: randomSize, date: date);</span></span>
+<span id="L20"><span class="lineNum">      20</span>              :     } catch (e) {</span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :       throw NTGenericException();</span></span>
+<span id="L22"><span class="lineNum">      22</span>              :     }</span>
+<span id="L23"><span class="lineNum">      23</span>              :   }</span>
+<span id="L24"><span class="lineNum">      24</span>              : }</span>
         </pre>
               </td>
             </tr>
