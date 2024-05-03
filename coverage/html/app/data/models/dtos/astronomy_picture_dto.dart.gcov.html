@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-05-02 23:15:50</td>
+            <td class="headerValue">2024-05-03 04:04:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -63,7 +63,7 @@
 <span id="L1"><span class="lineNum">       1</span>              : import 'package:nasa_today/app/domain/entities/entities.dart';</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
 <span id="L3"><span class="lineNum">       3</span>              : class AstronomyPictureDto extends AstronomyPictureEntity {</span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC tlaBgGNC">           4 :   AstronomyPictureDto({</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC tlaBgGNC">           7 :   AstronomyPictureDto({</span></span>
 <span id="L5"><span class="lineNum">       5</span>              :     super.copyright,</span>
 <span id="L6"><span class="lineNum">       6</span>              :     required super.date,</span>
 <span id="L7"><span class="lineNum">       7</span>              :     required super.explanation,</span>
@@ -74,16 +74,16 @@
 <span id="L12"><span class="lineNum">      12</span>              :     required super.url,</span>
 <span id="L13"><span class="lineNum">      13</span>              :   });</span>
 <span id="L14"><span class="lineNum">      14</span>              : </span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           2 :   factory AstronomyPictureDto.fromMap(Map&lt;String, dynamic&gt; map) {</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           2 :     return AstronomyPictureDto(</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           2 :       copyright: map['copyright'],</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           4 :       date: DateTime.tryParse(map['date'] ?? '') ?? DateTime.now(),</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           2 :       explanation: map['explanation'],</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           2 :       hdurl: map['hdurl'],</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           2 :       mediaType: map['media_type'],</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           2 :       serviceVersion: map['service_version'],</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           2 :       title: map['title'],</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :       url: map['url'],</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           3 :   factory AstronomyPictureDto.fromMap(Map&lt;String, dynamic&gt; map) {</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           3 :     return AstronomyPictureDto(</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           3 :       copyright: map['copyright'],</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           6 :       date: DateTime.tryParse(map['date'] ?? '') ?? DateTime.now(),</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           3 :       explanation: map['explanation'],</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :       hdurl: map['hdurl'],</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           3 :       mediaType: map['media_type'],</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           3 :       serviceVersion: map['service_version'],</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           3 :       title: map['title'],</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           3 :       url: map['url'],</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :     );</span>
 <span id="L26"><span class="lineNum">      26</span>              :   }</span>
 <span id="L27"><span class="lineNum">      27</span>              : }</span>
