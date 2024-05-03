@@ -5,6 +5,6 @@ class NTClientHttps extends NTClientHttpsBase {
   NTClientHttps({String? baseUrl, List<Interceptor>? interceptors})
       : super(
           BaseOptions(baseUrl: baseUrl ?? 'https://api.nasa.gov/'),
-          interceptors: interceptors,
+          interceptors: [ApiKeyInterceptor()],
         );
 }

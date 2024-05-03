@@ -14,31 +14,33 @@ import 'nt_client_https_test.mocks.dart';
 void main() {
   late NTClientHttpsBase client;
   late MockDio dio;
+  const endpointExample = "/any_endpoint";
 
   setUp(() {
     dio = MockDio();
-    client = NTClientHttps();
+    client = NTClientHttps(interceptors: []);
   });
 
-  test('Successful GET request', () async {
+  test('Should returns successful GET request', () async {
     final response = Response(
       data: {'result': 'success'},
-      requestOptions: RequestOptions(path: "/endpoint"),
+      requestOptions: RequestOptions(path: endpointExample),
       statusCode: 200,
     );
 
-    when(dio.get("/endpoint")).thenAnswer((_) async => response);
+    when(dio.get(endpointExample)).thenAnswer((_) async => response);
 
-    final result = await dio.get("/endpoint");
+    final result = await dio.get(endpointExample);
 
     expect(result.data, {'result': 'success'});
   });
 
-  test('GET request throws an exception', () async {
-    when(dio.get("/endpoint")).thenThrow(
-        DioException(requestOptions: RequestOptions(path: "/endpoint")));
+  test('Should throw NTException from GET request method when exists errors',
+      () async {
+    when(dio.get(endpointExample)).thenThrow(
+        DioException(requestOptions: RequestOptions(path: endpointExample)));
 
-    expect(
-        () async => await client.get("/endpoint"), throwsA(isA<NTException>()));
+    expect(() async => await client.get(endpointExample),
+        throwsA(isA<NTException>()));
   });
 }
