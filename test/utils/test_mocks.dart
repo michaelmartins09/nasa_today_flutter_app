@@ -1,11 +1,11 @@
 import 'package:faker/faker.dart';
-import 'package:nasa_today/app/domain/entities/entities.dart';
+import 'package:nasa_today/app/data/models/models.dart';
 
 class TestMocks {
-  static AstronomyPictureEntity get astronomyPictureToday {
+  static AstronomyPictureDto get astronomyPictureToday {
     final faker = Faker();
 
-    return AstronomyPictureEntity(
+    return AstronomyPictureDto(
       copyright: faker.person.name(),
       date: faker.date.dateTime(),
       explanation: faker.lorem.sentence(),

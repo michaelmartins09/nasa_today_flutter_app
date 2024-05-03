@@ -6,7 +6,7 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:nasa_today/app/domain/entities/entities.dart' as _i2;
+import 'package:nasa_today/app/data/models/models.dart' as _i2;
 import 'package:nasa_today/app/domain/repositories/get_astronomy_picture_of_the_day_repository.dart'
     as _i3;
 
@@ -23,9 +23,9 @@ import 'package:nasa_today/app/domain/repositories/get_astronomy_picture_of_the_
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeAstronomyPictureEntity_0 extends _i1.SmartFake
-    implements _i2.AstronomyPictureEntity {
-  _FakeAstronomyPictureEntity_0(
+class _FakeAstronomyPictureDto_0 extends _i1.SmartFake
+    implements _i2.AstronomyPictureDto {
+  _FakeAstronomyPictureDto_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -44,18 +44,18 @@ class MockIGetAstronomyPictureOfTheDayRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.AstronomyPictureEntity> call() => (super.noSuchMethod(
+  _i4.Future<_i2.AstronomyPictureDto> call() => (super.noSuchMethod(
         Invocation.method(
           #call,
           [],
         ),
-        returnValue: _i4.Future<_i2.AstronomyPictureEntity>.value(
-            _FakeAstronomyPictureEntity_0(
+        returnValue: _i4.Future<_i2.AstronomyPictureDto>.value(
+            _FakeAstronomyPictureDto_0(
           this,
           Invocation.method(
             #call,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.AstronomyPictureEntity>);
+      ) as _i4.Future<_i2.AstronomyPictureDto>);
 }

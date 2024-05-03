@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:nasa_today/app/data/models/models.dart';
 import 'package:nasa_today/app/domain/entities/entities.dart';
 import 'package:nasa_today/app/domain/exceptions/exceptions.dart';
 import 'package:nasa_today/app/domain/repositories/repositories.dart';
@@ -13,7 +14,7 @@ import 'get_astronomy_picture_of_the_day_test.mocks.dart';
 void main() {
   late IGetAstronomyPictureOfTheDayUseCase usecase;
   late IGetAstronomyPictureOfTheDayRepository repository;
-  late AstronomyPictureEntity pictureTodayEntityFaker;
+  late AstronomyPictureDto pictureTodayEntityFaker;
 
   setUp(() {
     repository = MockIGetAstronomyPictureOfTheDayRepository();
