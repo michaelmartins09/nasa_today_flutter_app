@@ -43,20 +43,27 @@ class MockNTClientHttps extends _i1.Mock implements _i3.NTClientHttps {
   @override
   _i4.Future<_i2.Response<T>> get<T>(
     String? path, {
+    Map<String, dynamic>? queryParameters,
     _i2.Options? options,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
           #get,
           [path],
-          {#options: options},
+          {
+            #queryParameters: queryParameters,
+            #options: options,
+          },
         ),
         returnValue: _i4.Future<_i2.Response<T>>.value(_FakeResponse_0<T>(
           this,
           Invocation.method(
             #get,
             [path],
-            {#options: options},
+            {
+              #queryParameters: queryParameters,
+              #options: options,
+            },
           ),
         )),
       ) as _i4.Future<_i2.Response<T>>);
