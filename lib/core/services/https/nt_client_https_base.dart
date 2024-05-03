@@ -15,11 +15,13 @@ abstract class NTClientHttpsBase {
 
   Future<Response<T>> get<T>(
     String path, {
+    Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
     try {
       return await _dio.get(
         path,
+        queryParameters: queryParameters,
         options: options,
       );
     } on DioException catch (e) {
