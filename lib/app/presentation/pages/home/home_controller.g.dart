@@ -25,6 +25,22 @@ mixin _$HomeController on _HomeControllerBase, Store {
     });
   }
 
+  late final _$loadingListAtom =
+      Atom(name: '_HomeControllerBase.loadingList', context: context);
+
+  @override
+  bool get loadingList {
+    _$loadingListAtom.reportRead();
+    return super.loadingList;
+  }
+
+  @override
+  set loadingList(bool value) {
+    _$loadingListAtom.reportWrite(value, super.loadingList, () {
+      super.loadingList = value;
+    });
+  }
+
   late final _$pictureTodayAtom =
       Atom(name: '_HomeControllerBase.pictureToday', context: context);
 
@@ -41,19 +57,50 @@ mixin _$HomeController on _HomeControllerBase, Store {
     });
   }
 
-  late final _$fetchAsyncAction =
-      AsyncAction('_HomeControllerBase.fetch', context: context);
+  late final _$picturesListAtom =
+      Atom(name: '_HomeControllerBase.picturesList', context: context);
 
   @override
-  Future<void> fetch() {
-    return _$fetchAsyncAction.run(() => super.fetch());
+  ObservableList<AstronomyPictureDto> get picturesList {
+    _$picturesListAtom.reportRead();
+    return super.picturesList;
+  }
+
+  @override
+  set picturesList(ObservableList<AstronomyPictureDto> value) {
+    _$picturesListAtom.reportWrite(value, super.picturesList, () {
+      super.picturesList = value;
+    });
+  }
+
+  late final _$fetchAstronomyPictureTodayAsyncAction = AsyncAction(
+      '_HomeControllerBase.fetchAstronomyPictureToday',
+      context: context);
+
+  @override
+  Future<void> fetchAstronomyPictureToday() {
+    return _$fetchAstronomyPictureTodayAsyncAction
+        .run(() => super.fetchAstronomyPictureToday());
+  }
+
+  late final _$fetchRandomAstronomyPicturesAsyncAction = AsyncAction(
+      '_HomeControllerBase.fetchRandomAstronomyPictures',
+      context: context);
+
+  @override
+  Future<void> fetchRandomAstronomyPictures(
+      {int randomSize = 15, DateTime? date}) {
+    return _$fetchRandomAstronomyPicturesAsyncAction.run(() =>
+        super.fetchRandomAstronomyPictures(randomSize: randomSize, date: date));
   }
 
   @override
   String toString() {
     return '''
 loading: ${loading},
-pictureToday: ${pictureToday}
+loadingList: ${loadingList},
+pictureToday: ${pictureToday},
+picturesList: ${picturesList}
     ''';
   }
 }

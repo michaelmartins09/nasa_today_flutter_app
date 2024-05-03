@@ -16,12 +16,12 @@ class AstronomyPictureDto extends AstronomyPictureEntity {
     return AstronomyPictureDto(
       copyright: map['copyright'],
       date: DateTime.tryParse(map['date'] ?? '') ?? DateTime.now(),
-      explanation: map['explanation'],
-      hdurl: map['hdurl'],
-      mediaType: map['media_type'],
-      serviceVersion: map['service_version'],
-      title: map['title'],
-      url: map['url'],
+      explanation: map['explanation'] ?? '',
+      hdurl: map['hdurl'] ?? '',
+      mediaType: map['media_type'] ?? '',
+      serviceVersion: map['service_version'] ?? '',
+      title: map['title'] ?? '',
+      url: map['url'] ?? '',
     );
   }
 }
