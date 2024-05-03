@@ -5,7 +5,7 @@ import '../../../core/services/https/https.dart';
 
 class GetAstronomyPictureOfTheDayDatasourceImp
     implements IGetAstronomyPictureOfTheDayDatasource {
-  final NTClientHttps _client;
+  final NTClientHtttpsBase _client;
 
   GetAstronomyPictureOfTheDayDatasourceImp(this._client);
 
@@ -14,6 +14,7 @@ class GetAstronomyPictureOfTheDayDatasourceImp
   @override
   Future<AstronomyPictureDto> call() async {
     final response = await _client.get(_endpoint);
+
     return AstronomyPictureDto.fromMap(response.data);
   }
 }
