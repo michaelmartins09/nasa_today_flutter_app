@@ -16,41 +16,47 @@ class PictureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        height: 150,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black45,
-              blurRadius: 4,
-              offset: Offset(-1, 4),
-            ),
-          ],
-          image: DecorationImage(
-            image: NetworkImage(picture),
-            fit: BoxFit.cover,
-          ),
-        ),
-        margin: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              color: Colors.black.withOpacity(0.5),
-              padding: const EdgeInsets.all(8),
-              child: Text(
-                title,
-                maxLines: 1,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+      child: Hero(
+        tag: picture,
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
+            height: 150,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black45,
+                  blurRadius: 4,
+                  offset: Offset(-1, 4),
                 ),
+              ],
+              image: DecorationImage(
+                image: NetworkImage(picture),
+                fit: BoxFit.cover,
               ),
             ),
-          ],
+            margin: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  color: Colors.black.withOpacity(0.5),
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    title,
+                    maxLines: 1,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
