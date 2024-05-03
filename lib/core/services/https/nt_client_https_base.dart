@@ -13,8 +13,6 @@ abstract class NTClientHtttpsBase {
     }
   }
 
-  get httpsClientAdapter => _dio.httpClientAdapter;
-
   Future<Response<T>> get<T>(
     String path, {
     Options? options,
